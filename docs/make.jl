@@ -12,5 +12,4 @@ makedocs(
 # for more information.
 deploydocs(
     repo = "github.com/kobied2018/testDoc.jl.git",
-    devbranch = "main"
 )
