@@ -1,0 +1,19 @@
+name: Runtests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: windows-latest # ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version: ['1.5']
+        julia-arch: [x64]
+        os: [windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: '1.5' #${{ matrix.julia-version }}
+      - uses: julia-actions/julia-buildpkg@latest
+      - uses: julia-actions/julia-runtest@latest
